@@ -29,6 +29,23 @@ public class DoubleMatrix extends GenericMatrix<Double> {
 		return DoubleModelUtilities.LeibnizFormula(permutationResult, matrix);
 	}
 	
+	public static double[][] inverseMatrix(double[][] matrix){
+		double[][] result = new double[matrix.length][matrix[0].length];
+		double determinant = matrixDeterminant(matrix);
+		result = AdjugateMatrix(matrix);
+		//we need a matrix scalar product method
+		scalarProduct(result,1/determinant);
+		return result;
+	}
+	
+	public static void scalarProduct(double[][] matrix, double scalar){
+		for(int i = 0; i < matrix.length; i++){
+			for(int j = 0; j < matrix[0].length; j++){
+				matrix[i][j] = matrix[i][j]*scalar;
+			}
+		}
+	}
+	
 	//double matrix specific operations
 	//the adjugate matrix wouldn't work with integers, each the determinant is a double return value
 	public static double[][] AdjugateMatrix(double[][] matrix ){
