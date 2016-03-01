@@ -55,6 +55,13 @@ public class ShowDataPlot extends Application {
                 	ExtendedScatterChart chart = new ExtendedScatterChart(data, min_x, max_x, min_y, max_y);
                 	ScatterChart<Number, Number> sc = chart.getChart();
                 	pane.setCenter(sc);
+                	
+                	//we will need to analyze the data at this point
+                	//we need to build a new dataHandler, this will be analytics system
+                	
+                	//the analytics will generate a mathematical model
+                	
+                	
                 }
             }});
 		
@@ -85,8 +92,11 @@ public class ShowDataPlot extends Application {
 				checkBoundary(nextPoint);
 			}
 		}
+		
+		
 	}
 	
+	//reset the x,y minimum and maximum boundaries, if the current value is greater or smaller than the current min and max
 	private void checkBoundary(DoublePoint currentPoint){
 		if( currentPoint.x < min_x )
 			min_x = currentPoint.x;

@@ -10,6 +10,8 @@ public class GenerateData {
 
 	public static void main(String[] args) throws IOException{
 		String resourceFolder = System.getProperty("user.dir")+File.separator+"resources";
+		
+		/*Linear plot
 		int plotsize = 100;
 		double xmin = 0;
 		double xmax = 100;
@@ -20,9 +22,25 @@ public class GenerateData {
 		
 		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file)));
 		
+		
 		//LinearModelPlot(m, b, size, xmin, xmax, ymin, ymax)
 		LinearModelPlot newplot = new LinearModelPlot(1, 0, plotsize, xmin, xmax, ymin, ymax);
+		*/
+		
+		//cubic plot
+		int plotsize = 15;
+		double xmin = 0;
+		double xmax = 10;
+		double ymin = 0;
+		double ymax = 1000;
+		String targetFile = resourceFolder+File.separator+"CubicPlot_"+plotsize+".txt";
+		File file= FileHandler.createFile(targetFile);
+		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+		
+		CubicModelPlot newplot = new CubicModelPlot(3, 2, 4, 3, plotsize, xmin, xmax, ymin, ymax);
 		DoublePoint[] plots = newplot.generateRandomPlot();
+		
+		
 		StringBuffer buffer = new StringBuffer("");
 		int j = 1;
 		for(int i = 0; i < plotsize; i++){
