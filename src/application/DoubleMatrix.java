@@ -93,4 +93,7 @@ public class DoubleMatrix extends GenericMatrix<Double> {
 		return result;
 	}
 	
+	//TODO we still need a multiple method for two double[][] matrix 
+	
+	
 }
