@@ -111,6 +111,7 @@ public class DoubleMatrix extends GenericMatrix<Double> {
 		return result;
 	}
 	
+	//order matters
 	public static double[][] multiplyMatrix(double[][] matrix1, double[][] matrix2){
 		if(  matrix1[0].length != matrix2.length ){
 			throw new RuntimeException(

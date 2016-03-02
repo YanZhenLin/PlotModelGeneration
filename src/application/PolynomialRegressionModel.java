@@ -5,7 +5,7 @@ public class PolynomialRegressionModel {
 	
 	private double[][] M;
 	private double[][] Y;
-	private double[][] A;
+	private double[][] A; //coefficientMatrix 
 	
 	private double[] x_coordinates;
 	private double[] y_coordinates;
@@ -34,6 +34,17 @@ public class PolynomialRegressionModel {
 		generateDynamicStorage();
 		generateM_Matrix();
 		generateY_Matrix();
+		solve_A();
+	}
+	
+	// XA = Y, in our terminology we have M = X so we do (M^-1)M A = M^-1 Y ===> A = M^-1 Y
+	private void solve_A(){
+		double[][] m_inverse = DoubleMatrix.inverseMatrix(M);
+		A = DoubleMatrix.multiplyMatrix(m_inverse, Y);
+	}
+	
+	public double[][] getA(){
+		return A;
 	}
 	
 	private void generateDynamicStorage(){
